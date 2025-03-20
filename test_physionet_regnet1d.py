@@ -11,16 +11,13 @@ Shenda Hong, Apr 2020
 import numpy as np
 from collections import Counter
 from tqdm import tqdm
-from matplotlib import pyplot as plt
 from sklearn.metrics import classification_report, confusion_matrix
 
-from util import read_data_physionet_2, read_data_physionet_4, preprocess_physionet, read_data_physionet_4_with_val
-from net1d import Net1D, MyDataset
+from util import read_data_physionet_4_with_val
+from models.net1d import Net1D, MyDataset
 
 import torch
-import torch.nn as nn
 import torch.optim as optim
-import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
 from torchsummary import summary

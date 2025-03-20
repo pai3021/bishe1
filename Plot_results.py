@@ -91,4 +91,4 @@ def plot_training_curves(df, output_dir="./figures"):
 if __name__ == "__main__":
 
     df = pd.read_csv('training_results/training_log_20250315_161016.csv')
-    plot_training_curves(df, output_dir="./results/figures")
+    plot_training_curves(df, output_dir="visualization_results/figures")

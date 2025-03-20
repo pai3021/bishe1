@@ -5,20 +5,15 @@ Shenda Hong, Jan 2020
 """
 
 import numpy as np
-import pickle
-from collections import Counter
 from tqdm import tqdm
-from matplotlib import pyplot as plt
 from sklearn.metrics import classification_report, confusion_matrix
 
-from util import read_data_physionet_2_clean, read_data_physionet_2_clean_federated
-from acnn1d import ACNN, MyDataset
+from util import read_data_physionet_2_clean
+from models.acnn1d import ACNN, MyDataset
 
 import torch
-import torch.nn as nn
 import torch.optim as optim
-import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
 
 if __name__ == "__main__":

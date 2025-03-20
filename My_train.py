@@ -6,7 +6,9 @@ import os
 import time
 
 # 自定义模块
-from resnet1d import ResNet1D, MyDataset
+from models.net1d import Net1D
+from models.resnet1d import ResNet1D, MyDataset
+from models.acnn1d import ACNN
 
 import torch
 import torch.nn as nn
@@ -89,6 +91,7 @@ if __name__ == "__main__":
     y_train = np.load('E:/deep-learning/tsai-main/data/y_train.npy')
     X_val = np.load('E:/deep-learning/tsai-main/data/X_val.npy')
     y_val = np.load('E:/deep-learning/tsai-main/data/y_val.npy')
+    print(X_train.shape, y_train.shape)
 
     # 创建数据集
     train_dataset = MyDataset(X_train, y_train)
@@ -109,6 +112,30 @@ if __name__ == "__main__":
         increasefilter_gap=12,
         use_do=True
     ).to(device)
+
+    # model = ACNN(
+    #     in_channels=1,
+    #     out_channels=128,
+    #     att_channels=16,
+    #     n_len_seg=50,
+    #     verbose=False,
+    #     n_classes=5,
+    #     device=device
+    # ).to(device)
+
+    # model = Net1D(
+    #     in_channels=1,
+    #     base_filters=256,
+    #     ratio=1.0,
+    #     filter_list=[1, 2, 2, 4, 4, 8, 8],
+    #     m_blocks_list=[2, 2, 2, 2, 2, 2, 2],
+    #     kernel_size=16,
+    #     stride=2,
+    #     groups_width=32,
+    #     verbose=True,
+    #     n_classes=5)
+    # model.to(device)
+
     summary(model, (X_train.shape[1], X_train.shape[2]), device=device_str)
 
     # 损失函数和优化器

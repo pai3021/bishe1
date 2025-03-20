@@ -6,7 +6,7 @@ import os
 import time
 
 # 自定义模块
-from resnet1d import ResNet1D, MyDataset
+from models.resnet1d import ResNet1D, MyDataset
 
 import torch
 import torch.nn as nn

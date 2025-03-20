@@ -11,13 +11,11 @@ from matplotlib import pyplot as plt
 from sklearn.metrics import classification_report 
 
 from util import read_data_generated
-from resnet1d import ResNet1D, MyDataset
+from models.resnet1d import ResNet1D, MyDataset
 
 import torch
-import torch.nn as nn
 import torch.optim as optim
-import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
 from torchsummary import summary
 
     
